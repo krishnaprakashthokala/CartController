@@ -1,0 +1,59 @@
+
+plugins {
+    id 'org.springframework.boot' version '2.5.0'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'org.ecommerce'
+version = '1.0-SNAPSHOT'
+description = 'CartController'
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+
+    // Auto generated dependencies start (do not remove this line comment)
+    // Beginning of hard-coded dependencies added by vFunction (do not remove this line comment)
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-jetty'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+    compileOnly 'org.projectlombok:lombok'
+    testImplementation 'junit:junit'
+    testImplementation 'org.mockito:mockito-core'
+    implementation 'org.ecommerce:common:1.0-SNAPSHOT'
+    // End of hard-coded dependencies added by vFunction (do not remove this line comment)
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+    implementation 'commons-beanutils:commons-beanutils-core:1.8.0'
+    implementation 'org.hibernate:hibernate-search-engine:5.6.0.Final'
+    implementation 'org.hibernate:hibernate-validator:5.4.0.Final'
+    implementation 'org.slf4j:jcl-over-slf4j:1.7.5'
+    implementation 'org.apache.lucene:lucene-analyzers-common:5.5.2'
+    implementation 'org.slf4j:slf4j-log4j12:1.7.5'
+    implementation 'com.github.darrachequesne:spring-data-jpa-datatables:3.1'
+    // Auto generated dependencies end (do not remove this line comment)
+
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+bootJar {
+    duplicatesStrategy = 'warn'
+}
+
